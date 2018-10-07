@@ -8,11 +8,14 @@ import { map } from 'rxjs/operators'
 import * as moment from 'moment';
 import { Router } from "@angular/router";
 import { SocketService } from "./socket.service";
+import { environment } from "../environments/environment";
 
 
 @Injectable({providedIn:'root'})
 @Injectable()
 export class TradeService{
+
+    TRADES_API=environment.apiUrl+ "api/trades/"
 
     trades:Trade[];
 
@@ -33,7 +36,7 @@ export class TradeService{
 
         console.log(trade)
 
-        this.http.post("http://localhost:3000/api/trades",trade).subscribe(response=>{
+        this.http.post(this.TRADES_API,trade).subscribe(response=>{
 
         console.log(response);
 
@@ -72,7 +75,7 @@ export class TradeService{
 
         //let queryParam=`?pageSize=${tradesPerPage}&currentPage=${currentPage}`
 
-        this.http.get<{message:string,trades:any}>("http://localhost:3000/api/trades")
+        this.http.get<{message:string,trades:any}>(this.TRADES_API)
         .pipe(map(tradesData=>{
 
             return{ trades:tradesData.trades.map(trade=>{
@@ -124,7 +127,7 @@ export class TradeService{
     getTrade(tradeId){
 
 
-       return  this.http.get<any>("http://localhost:3000/api/trades/"+tradeId) ; 
+       return  this.http.get<any>(this.TRADES_API+tradeId) ; 
     
     }
 
@@ -136,7 +139,7 @@ export class TradeService{
         console.log(tradeId);
 
 
-        this.http.put("http://localhost:3000/api/trades/" + tradeId,trade).subscribe(resp=>{
+        this.http.put(this.TRADES_API + tradeId,trade).subscribe(resp=>{
 
         console.log(resp);
 
@@ -152,7 +155,7 @@ export class TradeService{
     deleteTrade(tradeId){
 
 
-      return  this.http.delete("http://localhost:3000/api/trades/" + tradeId);
+      return  this.http.delete(this.TRADES_API + tradeId);
     
     }
     filterSearchCriteria(data:Trade,filterValue:TradeSearch){

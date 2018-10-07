@@ -11,7 +11,8 @@ import { environment } from "../../environments/environment";
 export class AuthService{
 
 
-    BACKEND_USER_URL=environment.apiUrl+ "user/"
+    AUTH_API=environment.apiUrl+ "api/user/"
+    
 
     private token:string;
 
@@ -53,7 +54,7 @@ export class AuthService{
             email,password
         }
 
-        this.http.post(this.BACKEND_USER_URL+ "signUp",auth).subscribe((data)=>{
+        this.http.post(this.AUTH_API+ "signUp",auth).subscribe((data)=>{
 
         console.log(data);
         this.router.navigate(['/']);
@@ -71,7 +72,7 @@ export class AuthService{
             email,password
         }
 
-        this.http.post<{token:string,expiresIn:number,userId:string}>(this.BACKEND_USER_URL+"login",authData).subscribe(response=>{
+        this.http.post<{token:string,expiresIn:number,userId:string}>(this.AUTH_API+"login",authData).subscribe(response=>{
 
         this.token=response.token;
 
