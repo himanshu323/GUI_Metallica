@@ -3,12 +3,12 @@ const path=require("path")
 
 let app=express();
 
-app.use(express.static(path.join(__dirname,"dist","metallica-app")))
+app.use(express.static(path.join(__dirname,"dist","MetallicaApp")))
 
 
 app.get("/*",(req,resp)=>{
 
-    resp.sendFile(path.join(__dirname,"dist","metallica-app","index.html"))
+    resp.sendFile(path.join(__dirname,"dist","MetallicaApp","index.html"))
 })
 
 app.listen(process.env.PORT || 8080,()=>{
