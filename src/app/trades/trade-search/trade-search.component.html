@@ -1,5 +1,5 @@
 <mat-card id="tradeSearchCard">
-  <form id="searchForm" (submit)="onSearch(tradeForm,clearFlag)" #tradeForm="ngForm" fxLayout fxLayout="center" fxLayoutGap="10px">
+  <form id="searchForm" (submit)="onSearch(tradeForm)" #tradeForm="ngForm" fxLayout fxLayout="center" fxLayoutGap="10px">
   
     <mat-form-field>
       <input matInput [matDatepicker]="picker" placeholder="Trade From Date" name="fromDate" ngModel required>
