@@ -12,7 +12,7 @@ import { environment } from "../environments/environment";
 
 
 @Injectable({providedIn:'root'})
-@Injectable()
+ //@Injectable()
 export class TradeService{
 
     TRADES_API=environment.apiUrl+ "api/trades/"

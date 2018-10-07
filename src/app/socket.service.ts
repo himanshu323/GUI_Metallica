@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import * as socketIo from 'socket.io-client';
 
 import { Observable } from "rxjs";
-import { environment } from "../environments/environment.prod";
+import { environment } from "../environments/environment";
 
 @Injectable({providedIn:'root'})
 export class SocketService{
@@ -11,7 +11,7 @@ export class SocketService{
 
     initializeSocket(){
 
-        this.socket = socketIo(environment.apiUrl);
+        this.socket = socketIo(environment.notifyService);
 
 
     }

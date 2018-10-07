@@ -24,6 +24,7 @@ import { ErrorInterceptor } from './auth/error-interceptor';
 import { AuthInterceptor } from './auth/auth-interceptor';
 import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
+import { TradeService } from './trade.service';
 
 
 @NgModule({
