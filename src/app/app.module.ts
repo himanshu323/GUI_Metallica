@@ -25,12 +25,13 @@ import { AuthInterceptor } from './auth/auth-interceptor';
 import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
 import { TradeService } from './trade.service';
+import { MarketChartComponent } from './market-chart/market-chart.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,HeaderComponent,TradeCreateComponent, TradeListComponent, 
-    TradeSearchComponent,TradeComponent, SidenavListComponent,ErrorComponent, HomeComponent
+    TradeSearchComponent,TradeComponent, SidenavListComponent,ErrorComponent, HomeComponent, MarketChartComponent
   ],
   imports: [
     BrowserModule,
